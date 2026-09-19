@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MedConnect - MedCircle</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-content {
+            padding: 30px 20px 100px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #1e88e5;
+            margin-bottom: 10px;
+        }
+
+        .page-content > p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .doctor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .doctor-card h2 {
+            margin: 0 0 8px;
+            color: #333;
+        }
+
+        .doctor-card p {
+            margin: 0;
+            color: #666;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 5px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .bottom-nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .bottom-nav a.active {
+            color: #1e88e5;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page-content">
+
+    <h1>🩺 MedConnect</h1>
+
+    <p>
+        Discover and connect with medical professionals.
+    </p>
+
+    <div class="doctor-card">
+        <h2>👨‍⚕️ Dr. Sharma</h2>
+        <p>Cardiologist</p>
+    </div>
+
+    <div class="doctor-card">
+        <h2>👩‍⚕️ Dr. Priya</h2>
+        <p>General Physician</p>
+    </div>
+
+    <div class="doctor-card">
+        <h2>👨‍⚕️ Dr. Kumar</h2>
+        <p>Neurologist</p>
+    </div>
+
+</div>
+
+<div class="bottom-nav">
+
+    <a href="{% url 'doctors' %}" class="active">
+        🩺<br>
+        MedConnect
+    </a>
+
+    <a href="{% url 'reels' %}">
+        🎬<br>
+        MedClips
+    </a>
+
+    <a href="{% url 'messages' %}">
+        💬<br>
+        MedChat
+    </a>
+
+    <a href="{% url 'profile' %}">
+        👤<br>
+        Profile
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,536 @@
+* {
+  box-sizing: border-box;
+  }
+
+html,
+body {
+
+```
+margin: 0;
+
+width: 100%;
+
+height: 100%;
+
+font-family: Arial, sans-serif;
+```
+
+}
+
+body {
+
+```
+background: #efeae2;
+```
+
+}
+
+.chat-page {
+
+```
+height: 100vh;
+
+display: flex;
+
+flex-direction: column;
+
+position: relative;
+
+overflow: hidden;
+```
+
+}
+
+/* ================= HEADER ================= */
+
+.chat-header {
+
+```
+height: 65px;
+
+min-height: 65px;
+
+background: #5138a8;
+
+color: white;
+
+display: flex;
+
+align-items: center;
+
+padding: 8px 12px;
+
+gap: 12px;
+```
+
+}
+
+.back-button {
+
+```
+color: white;
+
+text-decoration: none;
+
+font-size: 30px;
+
+width: 35px;
+```
+
+}
+
+.doctor-details {
+
+```
+flex: 1;
+
+display: flex;
+
+align-items: center;
+
+gap: 10px;
+```
+
+}
+
+.doctor-avatar {
+
+```
+width: 43px;
+
+height: 43px;
+
+border-radius: 50%;
+
+background: white;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+font-size: 22px;
+```
+
+}
+
+.doctor-details h3 {
+
+```
+margin: 0;
+
+font-size: 16px;
+```
+
+}
+
+.doctor-details p {
+
+```
+margin: 3px 0 0;
+
+font-size: 12px;
+
+opacity: .85;
+```
+
+}
+
+.header-actions {
+
+```
+display: flex;
+
+align-items: center;
+
+gap: 4px;
+```
+
+}
+
+.header-actions button {
+
+```
+border: none;
+
+background: transparent;
+
+color: white;
+
+font-size: 21px;
+
+cursor: pointer;
+
+padding: 8px;
+```
+
+}
+
+/* ================= CHAT ================= */
+
+.chat-messages {
+
+```
+flex: 1;
+
+overflow-y: auto;
+
+padding: 18px 12px 15px;
+
+display: flex;
+
+flex-direction: column;
+
+gap: 9px;
+```
+
+}
+
+.date-label {
+
+```
+align-self: center;
+
+background: white;
+
+padding: 5px 12px;
+
+border-radius: 8px;
+
+font-size: 11px;
+
+color: #777;
+
+margin-bottom: 5px;
+```
+
+}
+
+.message {
+
+```
+max-width: 75%;
+
+padding: 9px 10px 6px;
+
+border-radius: 9px;
+
+font-size: 14px;
+
+line-height: 1.4;
+
+box-shadow: 0 1px 1px rgba(0,0,0,.08);
+```
+
+}
+
+.message span {
+
+```
+display: block;
+
+text-align: right;
+
+font-size: 9px;
+
+color: #777;
+
+margin-top: 3px;
+```
+
+}
+
+.received {
+
+```
+align-self: flex-start;
+
+background: white;
+
+border-top-left-radius: 2px;
+```
+
+}
+
+.sent {
+
+```
+align-self: flex-end;
+
+background: #e3d9ff;
+
+border-top-right-radius: 2px;
+```
+
+}
+
+/* ================= MESSAGE BAR ================= */
+
+.message-bar {
+
+```
+min-height: 62px;
+
+background: #f7f7f7;
+
+display: flex;
+
+align-items: center;
+
+gap: 3px;
+
+padding: 7px;
+```
+
+}
+
+.message-bar input {
+
+```
+flex: 1;
+
+min-width: 0;
+
+height: 44px;
+
+border: none;
+
+outline: none;
+
+border-radius: 23px;
+
+padding: 0 15px;
+
+font-size: 15px;
+
+background: white;
+```
+
+}
+
+.tool-button {
+
+```
+width: 36px;
+
+height: 42px;
+
+border: none;
+
+background: transparent;
+
+font-size: 20px;
+
+cursor: pointer;
+
+flex-shrink: 0;
+```
+
+}
+
+.send-button {
+
+```
+width: 45px;
+
+height: 45px;
+
+border: none;
+
+border-radius: 50%;
+
+background: #5138a8;
+
+color: white;
+
+font-size: 20px;
+
+cursor: pointer;
+
+flex-shrink: 0;
+```
+
+}
+
+/* ================= EMOJI PANEL ================= */
+
+.emoji-panel {
+
+```
+display: none;
+
+position: absolute;
+
+bottom: 65px;
+
+left: 5px;
+
+background: white;
+
+padding: 8px;
+
+border-radius: 12px;
+
+box-shadow: 0 5px 25px rgba(0,0,0,.2);
+
+grid-template-columns: repeat(6, 1fr);
+
+z-index: 50;
+```
+
+}
+
+.emoji-panel.show {
+
+```
+display: grid;
+```
+
+}
+
+.emoji-panel button {
+
+```
+border: none;
+
+background: transparent;
+
+font-size: 24px;
+
+padding: 6px;
+
+cursor: pointer;
+```
+
+}
+
+/* ================= MORE MENU ================= */
+
+.more-menu {
+
+```
+display: none;
+
+position: absolute;
+
+right: 10px;
+
+top: 58px;
+
+width: 190px;
+
+background: white;
+
+border-radius: 10px;
+
+box-shadow: 0 5px 25px rgba(0,0,0,.2);
+
+z-index: 100;
+
+overflow: hidden;
+```
+
+}
+
+.more-menu.show {
+
+```
+display: block;
+```
+
+}
+
+.more-menu button {
+
+```
+display: block;
+
+width: 100%;
+
+padding: 13px;
+
+border: none;
+
+background: white;
+
+text-align: left;
+
+cursor: pointer;
+
+font-size: 14px;
+```
+
+}
+
+.more-menu button:hover {
+
+```
+background: #f1f1f1;
+```
+
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+```
+.chat-header {
+
+    height: 60px;
+
+    min-height: 60px;
+
+}
+
+
+.doctor-avatar {
+
+    width: 40px;
+
+    height: 40px;
+
+}
+
+
+.doctor-details h3 {
+
+    font-size: 14px;
+
+}
+
+
+.header-actions button {
+
+    font-size: 18px;
+
+    padding: 5px;
+
+}
+
+
+.message {
+
+    max-width: 82%;
+
+}
+
+
+.tool-button {
+
+    width: 32px;
+
+    font-size: 18px;
+
+}
+
+
+.message-bar input {
+
+    font-size: 15px;
+
+}
+```
+
+}

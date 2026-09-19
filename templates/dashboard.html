@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MedCircle</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     TOP NAVIGATION
+========================= -->
+
+<nav class="top-bar">
+
+    <div class="brand">
+        🩺 MedCircle
+    </div>
+
+    <div class="top-icons">
+
+        <a href="{% url 'dashboard' %}">
+            🏠
+        </a>
+
+        <a href="{% url 'upload_reel' %}">
+            ➕
+        </a>
+
+        <a href="{% url 'profile' %}">
+            👤
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<div class="dashboard">
+
+
+    <!-- WELCOME SECTION -->
+
+    <div class="welcome">
+
+        <h1>
+            Welcome, Dr. {{ name }} 👨‍⚕️
+        </h1>
+
+        <p>
+            Your professional medical community
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         DASHBOARD CARDS
+    ========================= -->
+
+    <div class="dashboard-grid">
+
+
+        <!-- DOCTORS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                👨‍⚕️
+            </div>
+
+            <h2>
+                Doctors
+            </h2>
+
+            <p>
+                Discover and connect with medical professionals.
+            </p>
+
+            <a href="{% url 'doctors' %}">
+                Explore Doctors →
+            </a>
+
+        </div>
+
+
+        <!-- REELS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                🎬
+            </div>
+
+            <h2>
+                Reels
+            </h2>
+
+            <p>
+                Watch medical educational videos.
+            </p>
+
+            <a href="{% url 'reels' %}">
+                Watch Reels →
+            </a>
+
+        </div>
+
+
+        <!-- MESSAGES -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                💬
+            </div>
+
+            <h2>
+                Messages
+            </h2>
+
+            <p>
+                Communicate with other doctors.
+            </p>
+
+            <a href="{% url 'messages' %}">
+                Open Messages →
+            </a>
+
+        </div>
+
+
+        <!-- PROFILE -->
+
+        <div class="

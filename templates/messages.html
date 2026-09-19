@@ -1,0 +1,232 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MedChat - MedCircle</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8fb;
+            margin: 0;
+            padding: 0 0 80px 0;
+        }
+
+        .page-header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .page-header h1 {
+            margin: 0;
+            color: #1e88e5;
+        }
+
+        .page-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .doctors-container {
+            max-width: 800px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .doctor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .doctor-info h2 {
+            margin: 0 0 6px;
+            color: #333;
+        }
+
+        .doctor-info p {
+            margin: 0;
+            color: #777;
+        }
+
+        .open-chat-btn {
+            background: #1e88e5;
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 50px 20px;
+            color: #777;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 5px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .bottom-nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .bottom-nav a.active {
+            color: #1e88e5;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+
+            .doctor-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .open-chat-btn {
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="page-header">
+
+    <h1>💬 MedChat</h1>
+
+    <p>
+        Connect with doctors and start a conversation.
+    </p>
+
+</div>
+
+
+<div class="doctors-container">
+
+    {% if doctors %}
+
+        {% for doctor in doctors %}
+
+        <div class="doctor-card">
+
+            <div class="doctor-info">
+
+                <h2>
+                    👨‍⚕️
+                    {{ doctor.first_name|default:doctor.username }}
+                </h2>
+
+                {% if doctor.doctorprofile %}
+
+                    <p>
+                        {{ doctor.doctorprofile.specialization }}
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        Medical Professional
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+
+            <a href="{% url 'chat' doctor.id %}"
+               class="open-chat-btn">
+
+                💬 Open Chat
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="empty-message">
+
+            <h2>💬 No doctors available</h2>
+
+            <p>
+                There are no other doctors to chat with yet.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+
+<div class="bottom-nav">
+
+    <a href="{% url 'doctors' %}">
+        🩺<br>
+        MedConnect
+    </a>
+
+    <a href="{% url 'reels' %}">
+        🎬<br>
+        MedClips
+    </a>
+
+    <a href="{% url 'messages' %}"
+       class="active">
+        💬<br>
+        MedChat
+    </a>
+
+    <a href="{% url 'profile' %}">
+        👤<br>
+        Profile
+    </a>
+
+</div>
+
+
+</body>
+</html>

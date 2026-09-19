@@ -1,0 +1,492 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register | MedCircle</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+    <style>
+
+        /* Registration specific styling */
+
+        .register-card {
+            max-width: 650px;
+        }
+
+        .register-card h1 {
+            margin-bottom: 8px;
+        }
+
+        .register-form {
+            margin-top: 25px;
+        }
+
+        .register-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .register-grid .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .input-group {
+            margin-bottom: 0;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .register-button {
+            margin-top: 25px;
+        }
+
+        .success-message {
+            background: #e8f7ee;
+            color: #218838;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            font-size: 14px;
+        }
+
+        .error-message {
+            background: #fdeaea;
+            color: #d93025;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            font-size: 14px;
+        }
+
+        .password-note {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 700px) {
+
+            .register-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .register-grid .full-width {
+                grid-column: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="auth-body">
+
+
+<div class="auth-container">
+
+
+    <!-- ================================================= -->
+    <!-- LEFT SIDE -->
+    <!-- ================================================= -->
+
+    <div class="auth-brand">
+
+        <div class="auth-logo">
+            🩺
+        </div>
+
+        <h1>
+            MedCircle
+        </h1>
+
+        <h2>
+            Join Your Medical<br>
+            Community
+        </h2>
+
+        <p>
+            Create your professional doctor account,
+            connect with medical professionals,
+            share knowledge and watch medical reels.
+        </p>
+
+
+        <div class="auth-features">
+
+            <div>
+                👨‍⚕️
+                <span>
+                    Connect with Doctors
+                </span>
+            </div>
+
+            <div>
+                🎬
+                <span>
+                    Watch Medical Reels
+                </span>
+            </div>
+
+            <div>
+                💬
+                <span>
+                    Communicate Securely
+                </span>
+            </div>
+
+            <div>
+                🩺
+                <span>
+                    Build Your Medical Profile
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- RIGHT SIDE -->
+    <!-- ================================================= -->
+
+    <div class="auth-form-container">
+
+        <div class="auth-card register-card">
+
+
+            <!-- Mobile Logo -->
+
+            <div class="mobile-logo">
+                🩺 MedCircle
+            </div>
+
+
+            <!-- Heading -->
+
+            <h1>
+                Create Account ✨
+            </h1>
+
+            <p class="auth-subtitle">
+                Join MedCircle as a medical professional
+            </p>
+
+
+            <!-- Django Messages -->
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <div class="
+                        {% if message.tags == 'success' %}
+                            success-message
+                        {% else %}
+                            error-message
+                        {% endif %}
+                    ">
+
+                        {{ message }}
+
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+
+            <!-- ================================================= -->
+            <!-- REGISTRATION FORM -->
+            <!-- ================================================= -->
+
+            <form
+                method="POST"
+                class="register-form"
+            >
+
+                {% csrf_token %}
+
+
+                <div class="register-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                👤
+                            </span>
+
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                ✉️
+                            </span>
+
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                🔒
+                            </span>
+
+                            <input
+                                type="password"
+                                name="password"
+                                id="registerPassword"
+                                placeholder="Create a password"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword()">
+
+                                👁️
+
+                            </button>
+
+                        </div>
+
+                        <div class="password-note">
+                            Use a strong password for your account.
+                        </div>
+
+                    </div>
+
+
+                    <!-- PHONE -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Mobile Number
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                📱
+                            </span>
+
+                            <input
+                                type="tel"
+                                name="phone_number"
+                                placeholder="Enter mobile number"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SPECIALIZATION -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Specialization
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                🩺
+                            </span>
+
+                            <input
+                                type="text"
+                                name="specialization"
+                                placeholder="Example: Cardiology"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- QUALIFICATION -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Qualification
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                🎓
+                            </span>
+
+                            <input
+                                type="text"
+                                name="qualification"
+                                placeholder="Example: MBBS, MD"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MEDICAL REGISTRATION NUMBER -->
+
+                    <div class="input-group full-width">
+
+                        <label>
+                            Medical Registration Number
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                🪪
+                            </span>
+
+                            <input
+                                type="text"
+                                name="medical_registration_number"
+                                placeholder="Enter your medical registration number"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button
+                    type="submit"
+                    class="auth-button register-button">
+
+                    Create MedCircle Account →
+
+                </button>
+
+
+            </form>
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+
+            <!-- LOGIN LINK -->
+
+            <p class="auth-switch">
+
+                Already have an account?
+
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script>
+
+    function togglePassword() {
+
+        const password =
+            document.getElementById("registerPassword");
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+        } else {
+
+            password.type = "password";
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

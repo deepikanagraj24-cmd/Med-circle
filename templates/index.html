@@ -1,0 +1,508 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MedCircle | Medical Community</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+</head>
+
+<body class="home-body">
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="home-navbar">
+
+    <div class="home-logo">
+
+        <div class="home-logo-icon">
+            🩺
+        </div>
+
+        <span>MedCircle</span>
+
+    </div>
+
+
+    <div class="home-nav-links">
+
+        <a href="#features">Features</a>
+
+        <a href="#about">About</a>
+
+        <a href="#community">Community</a>
+
+        <a href="{% url 'login' %}"
+           class="nav-login">
+            Login
+        </a>
+
+        <a href="{% url 'register' %}"
+           class="nav-register">
+            Get Started
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero-section">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            ✨ The Future of Medical Networking
+        </div>
+
+
+        <h1>
+
+            Connect.
+            <span>Learn.</span>
+            <br>
+            Grow Together.
+
+        </h1>
+
+
+        <p>
+
+            MedCircle is a professional social network
+            designed exclusively for doctors and healthcare
+            professionals.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="{% url 'register' %}"
+               class="primary-button">
+
+                Join MedCircle →
+
+            </a>
+
+
+            <a href="{% url 'login' %}"
+               class="secondary-button">
+
+                Login to Account
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-trust">
+
+            <div class="trust-item">
+
+                <strong>100%</strong>
+                <span>Professional</span>
+
+            </div>
+
+
+            <div class="trust-line"></div>
+
+
+            <div class="trust-item">
+
+                <strong>🔐</strong>
+                <span>Secure</span>
+
+            </div>
+
+
+            <div class="trust-line"></div>
+
+
+            <div class="trust-item">
+
+                <strong>🌍</strong>
+                <span>Community</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="hero-visual">
+
+        <div class="medical-circle">
+
+            <div class="medical-icon">
+                🩺
+            </div>
+
+        </div>
+
+
+        <div class="floating-card card-one">
+
+            <div class="floating-icon">
+                👨‍⚕️
+            </div>
+
+            <div>
+                <strong>Doctors</strong>
+                <small>Connect & Network</small>
+            </div>
+
+        </div>
+
+
+        <div class="floating-card card-two">
+
+            <div class="floating-icon">
+                🎬
+            </div>
+
+            <div>
+                <strong>Medical Reels</strong>
+                <small>Learn Something New</small>
+            </div>
+
+        </div>
+
+
+        <div class="floating-card card-three">
+
+            <div class="floating-icon">
+                💬
+            </div>
+
+            <div>
+                <strong>Community</strong>
+                <small>Share Knowledge</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section"
+         id="features">
+
+    <div class="section-heading">
+
+        <div class="section-badge">
+            MEDCIRCLE FEATURES
+        </div>
+
+        <h2>
+            Everything Doctors Need,
+            <span>In One Place</span>
+        </h2>
+
+        <p>
+            A modern platform built to connect healthcare
+            professionals and share medical knowledge.
+        </p>
+
+    </div>
+
+
+
+    <div class="features-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon purple">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Doctor Network
+            </h3>
+
+            <p>
+                Connect with doctors and healthcare
+                professionals from different specialties.
+            </p>
+
+            <a href="{% url 'register' %}">
+                Explore Network →
+            </a>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon pink">
+                🎬
+            </div>
+
+            <h3>
+                Medical Reels
+            </h3>
+
+            <p>
+                Watch and share short educational medical
+                videos with the community.
+            </p>
+
+            <a href="{% url 'register' %}">
+                Watch Reels →
+            </a>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon blue">
+                💬
+            </div>
+
+            <h3>
+                Professional Messages
+            </h3>
+
+            <p>
+                Communicate with other medical professionals
+                through a dedicated messaging system.
+            </p>
+
+            <a href="{% url 'register' %}">
+                Start Connecting →
+            </a>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon green">
+                📚
+            </div>
+
+            <h3>
+                Knowledge Sharing
+            </h3>
+
+            <p>
+                Share medical knowledge, experiences,
+                discussions and useful information.
+            </p>
+
+            <a href="{% url 'register' %}">
+                Join Community →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about-section"
+         id="about">
+
+    <div class="about-visual">
+
+        <div class="about-main-card">
+
+            <div class="about-medical-icon">
+                🩺
+            </div>
+
+            <h3>
+                Healthcare
+                <br>
+                Professionals
+            </h3>
+
+            <p>
+                Connected by MedCircle
+            </p>
+
+        </div>
+
+
+        <div class="about-small-card">
+
+            ✓ Secure
+            <br>
+            ✓ Professional
+            <br>
+            ✓ Connected
+
+        </div>
+
+    </div>
+
+
+
+    <div class="about-content">
+
+        <div class="section-badge">
+            ABOUT MEDCIRCLE
+        </div>
+
+        <h2>
+            Built for the
+            <span>Medical Community</span>
+        </h2>
+
+        <p>
+            MedCircle brings healthcare professionals
+            together on one modern platform.
+        </p>
+
+        <p>
+            Discover professionals, share knowledge,
+            communicate with colleagues and explore
+            educational medical content.
+        </p>
+
+
+        <div class="about-points">
+
+            <div>
+                <span>✓</span>
+                Professional networking
+            </div>
+
+            <div>
+                <span>✓</span>
+                Educational medical content
+            </div>
+
+            <div>
+                <span>✓</span>
+                Secure communication
+            </div>
+
+            <div>
+                <span>✓</span>
+                Medical community discussions
+            </div>
+
+        </div>
+
+
+        <a href="{% url 'register' %}"
+           class="primary-button">
+
+            Become a Member →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= COMMUNITY ================= -->
+
+<section class="community-section"
+         id="community">
+
+    <div class="community-content">
+
+        <div class="section-badge">
+            JOIN THE COMMUNITY
+        </div>
+
+        <h2>
+            Your Medical Community
+            <span>Starts Here.</span>
+        </h2>
+
+        <p>
+            Create your professional profile and
+            start connecting with healthcare
+            professionals today.
+        </p>
+
+
+        <div class="community-buttons">
+
+            <a href="{% url 'register' %}"
+               class="primary-button">
+
+                Create Free Account →
+
+            </a>
+
+            <a href="{% url 'login' %}"
+               class="community-login">
+
+                Already a member? Login
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="home-footer">
+
+    <div class="footer-logo">
+
+        🩺 MedCircle
+
+    </div>
+
+    <p>
+        A professional social network for doctors.
+    </p>
+
+    <div class="footer-line"></div>
+
+    <p class="copyright">
+
+        © 2026 MedCircle | Doctor Community
+
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

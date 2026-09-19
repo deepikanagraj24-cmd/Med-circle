@@ -1,0 +1,170 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Doctor Profile - MedCircle</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="nav-logo">
+        🩺 MedCircle
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="{% url 'dashboard' %}">
+            Home
+        </a>
+
+        <a href="{% url 'doctors' %}">
+            Doctors
+        </a>
+
+        <a href="{% url 'reels' %}">
+            Reels
+        </a>
+
+        <a href="{% url 'messages' %}">
+            Messages
+        </a>
+
+        <a href="{% url 'profile' %}">
+            Profile
+        </a>
+
+        <a href="{% url 'logout' %}"
+           class="logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="profile-container">
+
+    <div class="profile-icon">
+        🧑‍⚕️
+    </div>
+
+
+    <h1>
+        Doctor Profile
+    </h1>
+
+
+    <div class="profile-details">
+
+
+        <div class="profile-row">
+
+            <strong>Name:</strong>
+
+            <span>
+                {{ request.user.first_name }}
+            </span>
+
+        </div>
+
+
+        <div class="profile-row">
+
+            <strong>Email:</strong>
+
+            <span>
+                {{ request.user.email }}
+            </span>
+
+        </div>
+
+
+        {% if profile %}
+
+
+        <div class="profile-row">
+
+            <strong>Phone Number:</strong>
+
+            <span>
+                {{ profile.phone_number }}
+            </span>
+
+        </div>
+
+
+        <div class="profile-row">
+
+            <strong>Specialization:</strong>
+
+            <span>
+                {{ profile.specialization }}
+            </span>
+
+        </div>
+
+
+        <div class="profile-row">
+
+            <strong>Qualification:</strong>
+
+            <span>
+                {{ profile.qualification }}
+            </span>
+
+        </div>
+
+
+        <div class="profile-row">
+
+            <strong>Medical Registration Number:</strong>
+
+            <span>
+                {{ profile.medical_registration_number }}
+            </span>
+
+        </div>
+
+
+        {% else %}
+
+        <p>
+            Profile information not available.
+        </p>
+
+        {% endif %}
+
+
+    </div>
+
+
+    <a
+        href="{% url 'dashboard' %}"
+        class="button"
+    >
+        Go to Home
+    </a>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | MedCircle</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="auth-brand">
+
+            <div class="auth-logo">
+                🩺
+            </div>
+
+            <h1>MedCircle</h1>
+
+            <h2>
+                Your Medical<br>
+                Community
+            </h2>
+
+            <p>
+                Connect with doctors, share knowledge,
+                watch medical reels and build your
+                professional network.
+            </p>
+
+            <div class="auth-features">
+
+                <div>
+                    👨‍⚕️
+                    <span>Connect with Doctors</span>
+                </div>
+
+                <div>
+                    🎬
+                    <span>Watch Medical Reels</span>
+                </div>
+
+                <div>
+                    💬
+                    <span>Communicate Securely</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="auth-form-container">
+
+            <div class="auth-card">
+
+                <div class="mobile-logo">
+                    🩺 MedCircle
+                </div>
+
+                <h1>Welcome Back 👋</h1>
+
+                <p class="auth-subtitle">
+                    Login to your MedCircle account
+                </p>
+
+
+                <!-- LOGIN MESSAGES -->
+
+                {% if messages %}
+
+                    {% for message in messages %}
+
+                        <div class="error-message">
+                            {{ message }}
+                        </div>
+
+                    {% endfor %}
+
+                {% endif %}
+
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>✉️</span>
+
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>🔒</span>
+
+                            <input
+                                type="password"
+                                name="password"
+                                id="loginPassword"
+                                placeholder="Enter your password"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword()">
+
+                                👁️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-options">
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox">
+
+                            Remember me
+
+                        </label>
+
+                        <a href="#">
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="auth-button">
+
+                        Login to MedCircle →
+
+                    </button>
+
+                </form>
+
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+
+                <p class="auth-switch">
+
+                    Don't have an account?
+
+                    <a href="{% url 'register' %}">
+                        Create Account
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById("loginPassword");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+            } else {
+
+                password.type = "password";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
